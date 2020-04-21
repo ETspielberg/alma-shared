@@ -52,7 +52,7 @@ public class Licenses implements Serializable {
   // items.name=license items.baseName=license items.xmlName= items.xmlNamespace=
   // items.example= items.type=Object
   @XmlElement(name = "license")
-  private List<Object> license = null;
+  private List<License> license = null;
 
 
   public Licenses totalRecordCount(Integer totalRecordCount) {
@@ -81,15 +81,15 @@ public class Licenses implements Serializable {
   }
 
 
-  public Licenses license(List<Object> license) {
+  public Licenses license(List<License> license) {
     
     this.license = license;
     return this;
   }
 
-  public Licenses addLicenseItem(Object licenseItem) {
+  public Licenses addLicenseItem(License licenseItem) {
     if (this.license == null) {
-      this.license = new ArrayList<Object>();
+      this.license = new ArrayList<>();
     }
     this.license.add(licenseItem);
     return this;
@@ -104,12 +104,12 @@ public class Licenses implements Serializable {
   @JsonProperty(JSON_PROPERTY_LICENSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Object> getLicense() {
+  public List<License> getLicense() {
     return license;
   }
 
 
-  public void setLicense(List<Object> license) {
+  public void setLicense(List<License> license) {
     this.license = license;
   }
 

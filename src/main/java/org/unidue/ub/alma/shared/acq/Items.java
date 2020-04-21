@@ -52,7 +52,7 @@ public class Items implements Serializable {
   // items.name=item items.baseName=item items.xmlName= items.xmlNamespace=
   // items.example= items.type=Object
   @XmlElement(name = "item")
-  private List<Object> item = null;
+  private List<Item> item = null;
 
 
   public Items totalRecordCount(Integer totalRecordCount) {
@@ -81,15 +81,15 @@ public class Items implements Serializable {
   }
 
 
-  public Items item(List<Object> item) {
+  public Items item(List<Item> item) {
     
     this.item = item;
     return this;
   }
 
-  public Items addItemItem(Object itemItem) {
+  public Items addItemItem(Item itemItem) {
     if (this.item == null) {
-      this.item = new ArrayList<Object>();
+      this.item = new ArrayList<Item>();
     }
     this.item.add(itemItem);
     return this;
@@ -104,12 +104,12 @@ public class Items implements Serializable {
   @JsonProperty(JSON_PROPERTY_ITEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Object> getItem() {
+  public List<Item> getItem() {
     return item;
   }
 
 
-  public void setItem(List<Object> item) {
+  public void setItem(List<Item> item) {
     this.item = item;
   }
 

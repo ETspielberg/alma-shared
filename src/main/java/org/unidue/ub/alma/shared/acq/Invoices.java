@@ -52,7 +52,7 @@ public class Invoices implements Serializable {
   // items.name=invoice items.baseName=invoice items.xmlName= items.xmlNamespace=
   // items.example= items.type=Object
   @XmlElement(name = "invoice")
-  private List<Object> invoice = null;
+  private List<Invoice> invoice = null;
 
 
   public Invoices totalRecordCount(Integer totalRecordCount) {
@@ -81,15 +81,15 @@ public class Invoices implements Serializable {
   }
 
 
-  public Invoices invoice(List<Object> invoice) {
+  public Invoices invoice(List<Invoice> invoice) {
     
     this.invoice = invoice;
     return this;
   }
 
-  public Invoices addInvoiceItem(Object invoiceItem) {
+  public Invoices addInvoiceItem(Invoice invoiceItem) {
     if (this.invoice == null) {
-      this.invoice = new ArrayList<Object>();
+      this.invoice = new ArrayList<>();
     }
     this.invoice.add(invoiceItem);
     return this;
@@ -104,12 +104,12 @@ public class Invoices implements Serializable {
   @JsonProperty(JSON_PROPERTY_INVOICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Object> getInvoice() {
+  public List<Invoice> getInvoice() {
     return invoice;
   }
 
 
-  public void setInvoice(List<Object> invoice) {
+  public void setInvoice(List<Invoice> invoice) {
     this.invoice = invoice;
   }
 

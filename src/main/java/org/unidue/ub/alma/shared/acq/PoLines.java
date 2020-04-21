@@ -52,7 +52,7 @@ public class PoLines implements Serializable {
   // items.name=poLine items.baseName=poLine items.xmlName= items.xmlNamespace=
   // items.example= items.type=Object
   @XmlElement(name = "poLine")
-  private List<Object> poLine = null;
+  private List<PoLine> poLine = null;
 
 
   public PoLines totalRecordCount(Integer totalRecordCount) {
@@ -81,15 +81,15 @@ public class PoLines implements Serializable {
   }
 
 
-  public PoLines poLine(List<Object> poLine) {
+  public PoLines poLine(List<PoLine> poLine) {
     
     this.poLine = poLine;
     return this;
   }
 
-  public PoLines addPoLineItem(Object poLineItem) {
+  public PoLines addPoLineItem(PoLine poLineItem) {
     if (this.poLine == null) {
-      this.poLine = new ArrayList<Object>();
+      this.poLine = new ArrayList<PoLine>();
     }
     this.poLine.add(poLineItem);
     return this;
@@ -104,12 +104,12 @@ public class PoLines implements Serializable {
   @JsonProperty(JSON_PROPERTY_PO_LINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Object> getPoLine() {
+  public List<PoLine> getPoLine() {
     return poLine;
   }
 
 
-  public void setPoLine(List<Object> poLine) {
+  public void setPoLine(List<PoLine> poLine) {
     this.poLine = poLine;
   }
 
