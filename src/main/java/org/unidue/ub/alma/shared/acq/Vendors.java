@@ -14,8 +14,11 @@
 package org.unidue.ub.alma.shared.acq;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -26,44 +29,44 @@ import com.fasterxml.jackson.dataformat.xml.annotation.*;
 import javax.xml.bind.annotation.*;
 
 /**
- * A list of invoices.
+ * A list of Vendors.
  */
-@ApiModel(description = "A list of invoices.")
+@ApiModel(description = "A list of Vendors.")
 @JsonPropertyOrder({
-  Invoices.JSON_PROPERTY_TOTAL_RECORD_COUNT,
-  Invoices.JSON_PROPERTY_INVOICE
+  Vendors.JSON_PROPERTY_TOTAL_RECORD_COUNT,
+  Vendors.JSON_PROPERTY_VENDOR
 })
 
-@XmlRootElement(name = "invoices")
+@XmlRootElement(name = "vendors")
 @XmlAccessorType(XmlAccessType.FIELD)
-@JacksonXmlRootElement(localName = "invoices")
-public class Invoices implements Serializable {
+@JacksonXmlRootElement(localName = "vendors")
+public class Vendors implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_TOTAL_RECORD_COUNT = "total_record_count";
   @XmlAttribute(name = "total_record_count")
   private Integer totalRecordCount;
 
-  public static final String JSON_PROPERTY_INVOICE = "invoice";
+  public static final String JSON_PROPERTY_VENDOR = "vendor";
   // Is a container wrapped=false
-  // items.name=invoice items.baseName=invoice items.xmlName= items.xmlNamespace=
+  // items.name=vendor items.baseName=vendor items.xmlName= items.xmlNamespace=
   // items.example= items.type=Object
-  @XmlElement(name = "invoice")
-  private List<Invoice> invoice = null;
+  @XmlElement(name = "vendor")
+  private List<Vendor> vendor = null;
 
 
-  public Invoices totalRecordCount(Integer totalRecordCount) {
+  public Vendors totalRecordCount(Integer totalRecordCount) {
     
     this.totalRecordCount = totalRecordCount;
     return this;
   }
 
    /**
-   * The total number of invoices. This can be used when retrieving the invoices list using pagination.
+   * The total number of vendors. This can be used when retrieving the vendors list using pagination.
    * @return totalRecordCount
   **/
-  
-  @ApiModelProperty(value = "The total number of invoices. This can be used when retrieving the invoices list using pagination.")
+
+  @ApiModelProperty(value = "The total number of vendors. This can be used when retrieving the vendors list using pagination.")
   @JsonProperty(JSON_PROPERTY_TOTAL_RECORD_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   @JacksonXmlProperty(isAttribute = true, localName = "total_record_count")
@@ -78,36 +81,36 @@ public class Invoices implements Serializable {
   }
 
 
-  public Invoices invoice(List<Invoice> invoice) {
+  public Vendors vendor(List<Vendor> vendor) {
     
-    this.invoice = invoice;
+    this.vendor = vendor;
     return this;
   }
 
-  public Invoices addInvoiceItem(Invoice invoiceItem) {
-    if (this.invoice == null) {
-      this.invoice = new ArrayList<>();
+  public Vendors addVendorItem(Vendor vendorItem) {
+    if (this.vendor == null) {
+      this.vendor = new ArrayList<Vendor>();
     }
-    this.invoice.add(invoiceItem);
+    this.vendor.add(vendorItem);
     return this;
   }
 
    /**
-   * invoice object.
-   * @return invoice
+   * vendor object.
+   * @return vendor
   **/
-  
-  @ApiModelProperty(value = "invoice object.")
-  @JsonProperty(JSON_PROPERTY_INVOICE)
+
+  @ApiModelProperty(value = "vendor object.")
+  @JsonProperty(JSON_PROPERTY_VENDOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Invoice> getInvoice() {
-    return invoice;
+  public List<Vendor> getVendor() {
+    return vendor;
   }
 
 
-  public void setInvoice(List<Invoice> invoice) {
-    this.invoice = invoice;
+  public void setVendor(List<Vendor> vendor) {
+    this.vendor = vendor;
   }
 
 
@@ -119,23 +122,23 @@ public class Invoices implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Invoices invoices = (Invoices) o;
-    return Objects.equals(this.totalRecordCount, invoices.totalRecordCount) &&
-        Objects.equals(this.invoice, invoices.invoice);
+    Vendors vendors = (Vendors) o;
+    return Objects.equals(this.totalRecordCount, vendors.totalRecordCount) &&
+        Objects.equals(this.vendor, vendors.vendor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalRecordCount, invoice);
+    return Objects.hash(totalRecordCount, vendor);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Invoices {\n");
+    sb.append("class Vendors {\n");
     sb.append("    totalRecordCount: ").append(toIndentedString(totalRecordCount)).append("\n");
-    sb.append("    invoice: ").append(toIndentedString(invoice)).append("\n");
+    sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");
     sb.append("}");
     return sb.toString();
   }

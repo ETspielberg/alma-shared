@@ -16,17 +16,14 @@ package org.unidue.ub.alma.shared.acq;
 import java.util.Date;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 import java.io.Serializable;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import com.fasterxml.jackson.dataformat.xml.annotation.*;
 import javax.xml.bind.annotation.*;
 
@@ -237,7 +234,7 @@ public class PoLine implements Serializable {
   // items.example= items.type=Object
   @XmlElement(name = "alert")
   @XmlElementWrapper(name = "alerts")
-  private List<Object> alert = null;
+  private List<String> alert = null;
 
   public static final String JSON_PROPERTY_NOTE = "note";
   // Is a container wrapped=true
@@ -328,14 +325,17 @@ public class PoLine implements Serializable {
 
   public static final String JSON_PROPERTY_SUBSCRIPTION_FROM_DATE = "subscription_from_date";
   @XmlElement(name = "subscription_from_date")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'Z'")
   private Date subscriptionFromDate;
 
   public static final String JSON_PROPERTY_SUBSCRIPTION_TO_DATE = "subscription_to_date";
   @XmlElement(name = "subscription_to_date")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'Z'")
   private Date subscriptionToDate;
 
   public static final String JSON_PROPERTY_RENEWAL_DATE = "renewal_date";
   @XmlElement(name = "renewal_date")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'Z'")
   private Date renewalDate;
 
   public static final String JSON_PROPERTY_RENEWAL_PERIOD = "renewal_period";
@@ -348,14 +348,17 @@ public class PoLine implements Serializable {
 
   public static final String JSON_PROPERTY_CREATED_DATE = "created_date";
   @XmlElement(name = "created_date")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'Z'")
   private Date createdDate;
 
   public static final String JSON_PROPERTY_STATUS_DATE = "status_date";
   @XmlElement(name = "status_date")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'Z'")
   private Date statusDate;
 
   public static final String JSON_PROPERTY_EXPECTED_RECEIPT_DATE = "expected_receipt_date";
   @XmlElement(name = "expected_receipt_date")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'Z'")
   private Date expectedReceiptDate;
 
 
@@ -1224,15 +1227,15 @@ public class PoLine implements Serializable {
   }
 
 
-  public PoLine alert(List<Object> alert) {
+  public PoLine alert(List<String> alert) {
     
     this.alert = alert;
     return this;
   }
 
-  public PoLine addAlertItem(Object alertItem) {
+  public PoLine addAlertItem(String alertItem) {
     if (this.alert == null) {
-      this.alert = new ArrayList<Object>();
+      this.alert = new ArrayList<String>();
     }
     this.alert.add(alertItem);
     return this;
@@ -1249,12 +1252,12 @@ public class PoLine implements Serializable {
   // items.xmlName=alert
   @JacksonXmlElementWrapper(useWrapping = true, localName = "alert")
 
-  public List<Object> getAlert() {
+  public List<String> getAlert() {
     return alert;
   }
 
 
-  public void setAlert(List<Object> alert) {
+  public void setAlert(List<String> alert) {
     this.alert = alert;
   }
 

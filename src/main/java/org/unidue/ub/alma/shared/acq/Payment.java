@@ -16,6 +16,7 @@ package org.unidue.ub.alma.shared.acq;
 import java.util.Date;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
@@ -64,6 +65,7 @@ public class Payment implements Serializable {
 
   public static final String JSON_PROPERTY_VOUCHER_DATE = "voucher_date";
   @XmlElement(name = "voucher_date")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'Z'")
   private Date voucherDate;
 
   public static final String JSON_PROPERTY_VOUCHER_NUMBER = "voucher_number";

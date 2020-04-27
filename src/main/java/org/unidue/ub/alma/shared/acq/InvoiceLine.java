@@ -16,6 +16,7 @@ package org.unidue.ub.alma.shared.acq;
 import java.util.Date;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
@@ -112,10 +113,12 @@ public class InvoiceLine implements Serializable {
 
   public static final String JSON_PROPERTY_SUBSCRIPTION_FROM_DATE = "subscription_from_date";
   @XmlElement(name = "subscription_from_date")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'Z'")
   private Date subscriptionFromDate;
 
   public static final String JSON_PROPERTY_SUBSCRIPTION_TO_DATE = "subscription_to_date";
   @XmlElement(name = "subscription_to_date")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'Z'")
   private Date subscriptionToDate;
 
   public static final String JSON_PROPERTY_ADDITIONAL_INFO = "additional_info";

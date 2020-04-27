@@ -16,6 +16,7 @@ package org.unidue.ub.alma.shared.acq;
 import java.util.Date;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
@@ -80,6 +81,7 @@ public class Invoice implements Serializable {
 
   public static final String JSON_PROPERTY_INVOICE_DATE = "invoice_date";
   @XmlElement(name = "invoice_date")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'Z'")
   private Date invoiceDate;
 
   public static final String JSON_PROPERTY_VENDOR = "vendor";
@@ -176,7 +178,7 @@ public class Invoice implements Serializable {
 
   public static final String JSON_PROPERTY_INVOICE_LINES = "invoice_lines";
   @XmlElement(name = "invoice_lines")
-  private Object invoiceLines = null;
+  private InvoiceLines invoiceLines = null;
 
 
   public Invoice link(String link) {
@@ -843,7 +845,7 @@ public class Invoice implements Serializable {
   }
 
 
-  public Invoice invoiceLines(Object invoiceLines) {
+  public Invoice invoiceLines(InvoiceLines invoiceLines) {
     
     this.invoiceLines = invoiceLines;
     return this;
@@ -859,12 +861,12 @@ public class Invoice implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   @JacksonXmlProperty(localName = "invoice_lines")
 
-  public Object getInvoiceLines() {
+  public InvoiceLines getInvoiceLines() {
     return invoiceLines;
   }
 
 
-  public void setInvoiceLines(Object invoiceLines) {
+  public void setInvoiceLines(InvoiceLines invoiceLines) {
     this.invoiceLines = invoiceLines;
   }
 
