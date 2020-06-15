@@ -13,7 +13,6 @@
 
 package org.unidue.ub.alma.shared.acq;
 
-import java.util.Currency;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -132,7 +131,7 @@ public class Vendor implements Serializable {
   // items.example= items.type=Object
   @XmlElement(name = "currency")
   @XmlElementWrapper(name = "currencies")
-  private List<Currency> currency = null;
+  private List<InvoiceCurrency> currency = null;
 
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   // Is a container wrapped=true
@@ -568,13 +567,13 @@ public class Vendor implements Serializable {
   }
 
 
-  public Vendor currency(List<Currency> currency) {
+  public Vendor currency(List<InvoiceCurrency> currency) {
     
     this.currency = currency;
     return this;
   }
 
-  public Vendor addCurrencyItem(Currency currencyItem) {
+  public Vendor addCurrencyItem(InvoiceCurrency currencyItem) {
     if (this.currency == null) {
       this.currency = new ArrayList<>();
     }
@@ -593,12 +592,12 @@ public class Vendor implements Serializable {
   // items.xmlName=currency
   @JacksonXmlElementWrapper(useWrapping = true, localName = "currency")
 
-  public List<Currency> getCurrency() {
+  public List<InvoiceCurrency> getCurrency() {
     return currency;
   }
 
 
-  public void setCurrency(List<Currency> currency) {
+  public void setCurrency(List<InvoiceCurrency> currency) {
     this.currency = currency;
   }
 

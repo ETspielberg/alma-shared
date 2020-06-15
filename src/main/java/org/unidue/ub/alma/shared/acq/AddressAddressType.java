@@ -83,7 +83,6 @@ public class AddressAddressType implements Serializable {
    * Get value
    * @return value
   **/
-
   @ApiModelProperty(example = "billing", value = "")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,7 +120,7 @@ public class AddressAddressType implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Address2AddressType {\n");
+    sb.append("class AddressAddressType {\n");
     sb.append("    desc: ").append(toIndentedString(desc)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");

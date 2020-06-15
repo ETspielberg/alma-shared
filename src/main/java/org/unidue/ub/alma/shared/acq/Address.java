@@ -16,6 +16,7 @@ package org.unidue.ub.alma.shared.acq;
 import java.util.Date;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
@@ -100,16 +101,18 @@ public class Address implements Serializable {
 
   public static final String JSON_PROPERTY_START_DATE = "start_date";
   @XmlElement(name = "start_date")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'Z'")
   private Date startDate;
 
   public static final String JSON_PROPERTY_END_DATE = "end_date";
   @XmlElement(name = "end_date")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'Z'")
   private Date endDate;
 
   public static final String JSON_PROPERTY_ADDRESS_TYPE = "address_type";
   // Is a container wrapped=true
   // items.name=addressType items.baseName=addressType items.xmlName= items.xmlNamespace=
-  // items.example= items.type=Address2AddressType
+  // items.example= items.type=AddressAddressType
   @XmlElement(name = "addressType")
   @XmlElementWrapper(name = "address_types")
   private List<AddressAddressType> addressType = null;

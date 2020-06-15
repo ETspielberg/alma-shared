@@ -116,7 +116,7 @@ public class Address implements Serializable {
   public static final String JSON_PROPERTY_ADDRESS_TYPE = "address_type";
   // Is a container wrapped=true
   // items.name=addressType items.baseName=addressType items.xmlName= items.xmlNamespace=
-  // items.example= items.type=Address2AddressType
+  // items.example= items.type=AddressAddressType
   @XmlElement(name = "addressType")
   @XmlElementWrapper(name = "address_types")
   private List<AddressAddressType> addressType = null;

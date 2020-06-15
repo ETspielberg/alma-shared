@@ -13,6 +13,7 @@
 
 package org.unidue.ub.alma.shared.acq;
 
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -70,7 +71,7 @@ public class Statistics implements Serializable {
 
   public static final String JSON_PROPERTY_FORMAT = "format";
   @XmlElement(name = "format")
-  private StatisticsFormat format;
+  private List<StatisticsFormat> format;
 
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   @XmlElement(name = "frequency")
@@ -223,7 +224,7 @@ public class Statistics implements Serializable {
   }
 
 
-  public Statistics format(StatisticsFormat format) {
+  public Statistics format(List<StatisticsFormat> format) {
     
     this.format = format;
     return this;
@@ -239,12 +240,12 @@ public class Statistics implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   @JacksonXmlProperty(localName = "format")
 
-  public StatisticsFormat getFormat() {
+  public List<StatisticsFormat> getFormat() {
     return format;
   }
 
 
-  public void setFormat(StatisticsFormat format) {
+  public void setFormat(List<StatisticsFormat> format) {
     this.format = format;
   }
 
