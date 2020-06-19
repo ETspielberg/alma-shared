@@ -158,6 +158,7 @@ public class AlmaUser implements Serializable {
 
   public static final String JSON_PROPERTY_BIRTH_DATE = "birth_date";
   @XmlElement(name = "birth_date")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
   private Date birthDate;
 
   public static final String JSON_PROPERTY_EXPIRY_DATE = "expiry_date";
